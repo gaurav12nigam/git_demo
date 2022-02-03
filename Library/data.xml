@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<users>
+   <user id="3">
+	  <email>tes3332112@tes.com</email>
+      <title>Mr</title>
+	  <firstname>test</firstname>
+	  <lastname>test</lastname>
+	  <password>Test@123</password>
+	  <address>test address</address>
+	  <city>NY</city>
+	  <state>California</state>
+	  <zip>90011</zip>
+	  <mobile>99999999</mobile>
+   </user>
+	<user id="4">
+	  <email>gr@eat.com</email>
+      <title>Mr</title>
+	  <firstname>test</firstname>
+	  <lastname>test</lastname>
+	  <password>Test@123</password>
+	  <address>test address</address>
+	  <city>NY</city>
+	  <state>California</state>
+	  <zip>90011</zip>
+	  <mobile>99999999</mobile>
+   </user>
+</users>

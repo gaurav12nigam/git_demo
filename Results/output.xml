@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.9 on win32)" generated="20220131 11:00:06.199" rpa="false" schemaversion="2">
+<suite id="s1" name="API Automation" source="C:\Users\gaurav\PycharmProjects\pythonProject1\Testcases\API_Automation.robot">
+<test id="s1-t1" name="API Testing Mode Get">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_user</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220131 11:00:06.683" level="INFO">Creating Session using : alias=session_user, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220131 11:00:06.683" endtime="20220131 11:00:06.683"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${res}</var>
+<arg>session_user</arg>
+<arg>${get_url}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220131 11:00:06.902" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220131 11:00:06.902" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 31 Jan 2022 05:30:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '2886', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=WkMqqWuUXt2fXrCj6AA0pj9nWV5yfJ4EQYP1WFdN2cIC1Hl6%2BFU2GVKPM3j6OBb7QMGvX4Vs%2FJh6Mwcuhy%2B75cYMXrd1HJC4jk%2FAAvQE%2B5U5xRDFaUQkLxjwpQ8%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '6d608bd0183c849b-BOM', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220131 11:00:06.902" level="INFO">c:\users\gaurav\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220131 11:00:06.902" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220131 11:00:06.683" endtime="20220131 11:00:06.902"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220131 11:00:06.902" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220131 11:00:06.902" endtime="20220131 11:00:06.902"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:06.902" endtime="20220131 11:00:06.902"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${s}</var>
+<arg>2</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20220131 11:00:06.917" level="INFO">${s} = 2</msg>
+<status status="PASS" starttime="20220131 11:00:06.902" endtime="20220131 11:00:06.917"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${res.json()["total_pages"]}</arg>
+<arg>${s}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:06.917" endtime="20220131 11:00:06.917"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${res.json()["data"][0]["email"]}</arg>
+<arg>michael.lawson@reqres.in</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:06.917" endtime="20220131 11:00:06.917"/>
+</kw>
+<doc>This Testcase is used to verify API Testing using GET Request</doc>
+<tag>API_Testing</tag>
+<status status="PASS" starttime="20220131 11:00:06.683" endtime="20220131 11:00:06.917"/>
+</test>
+<test id="s1-t2" name="API Testing Mode Post">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_user</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220131 11:00:06.933" level="INFO">Creating Session using : alias=session_user, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220131 11:00:06.917" endtime="20220131 11:00:06.933"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${my_var}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=cityslicka</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220131 11:00:06.933" level="INFO">${my_var} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
+<status status="PASS" starttime="20220131 11:00:06.933" endtime="20220131 11:00:06.933"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220131 11:00:06.933" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220131 11:00:06.933" endtime="20220131 11:00:06.933"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${res}</var>
+<arg>session_user</arg>
+<arg>${post_url}</arg>
+<arg>data=${my_var}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20220131 11:00:06.933" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20220131 11:00:07.495" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
+ body={"email": "eve.holt@reqres.in", "password": "cityslicka"} 
+ </msg>
+<msg timestamp="20220131 11:00:07.495" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 31 Jan 2022 05:30:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=pG7U18HRrSHYt%2B0eyVnunxEc8W53WD%2BiwkwqwS%2F2dAEEbC8H4naibQ%2B4JnlUy4lb2oUaCXtXEqAizChStlAqT2ve7qt82KSGDvl%2B%2FhxrD5EG52WoSfIFGD8TQT4%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '6d608bd17da98483-BOM', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"token":"QpwL5tke4Pnpja7X4"} 
+ </msg>
+<msg timestamp="20220131 11:00:07.495" level="INFO">c:\users\gaurav\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220131 11:00:07.495" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220131 11:00:06.933" endtime="20220131 11:00:07.495"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220131 11:00:07.495" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220131 11:00:07.495" endtime="20220131 11:00:07.495"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:07.495" endtime="20220131 11:00:07.495"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${res.json()["token"]}</arg>
+<arg>QpwL5tke4Pnpja7X4</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:07.495" endtime="20220131 11:00:07.495"/>
+</kw>
+<doc>This Testcase is used to verify API Testing using POST Request</doc>
+<tag>API_Testing</tag>
+<status status="PASS" starttime="20220131 11:00:06.917" endtime="20220131 11:00:07.495"/>
+</test>
+<test id="s1-t3" name="API Testing Mode Put">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_user</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220131 11:00:07.511" level="INFO">Creating Session using : alias=session_user, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220131 11:00:07.511" endtime="20220131 11:00:07.511"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${my_var}</var>
+<arg>name=Gaurav</arg>
+<arg>job=Automation</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220131 11:00:07.511" level="INFO">${my_var} = {'name': 'Gaurav', 'job': 'Automation'}</msg>
+<status status="PASS" starttime="20220131 11:00:07.511" endtime="20220131 11:00:07.511"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220131 11:00:07.511" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220131 11:00:07.511" endtime="20220131 11:00:07.511"/>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<var>${res}</var>
+<arg>session_user</arg>
+<arg>${put_patch_delete_url}</arg>
+<arg>data=${my_var}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<msg timestamp="20220131 11:00:07.511" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg timestamp="20220131 11:00:08.105" level="INFO">PUT Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '39'} 
+ body={"name": "Gaurav", "job": "Automation"} 
+ </msg>
+<msg timestamp="20220131 11:00:08.105" level="INFO">PUT Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 31 Jan 2022 05:30:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"4b-Ce/Ilm9Fw3MuYp2WP1lqOqOBYyw"', 'via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ulMU0dRzVZO5nyHJXj0GhhKdzz1V5U%2FsUObulw0iwOQFIMq%2FaE5M9wCrQNw44r53RPXzScXqC15P574Akd18nK0u%2BcVhAdXHtBWJKqWkBshdU8%2FDua0%2FLfraS%2B8%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '6d608bd52a58854f-BOM', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"name":"Gaurav","job":"Automation","updatedAt":"2022-01-31T05:30:07.765Z"} 
+ </msg>
+<msg timestamp="20220131 11:00:08.105" level="INFO">c:\users\gaurav\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220131 11:00:08.105" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220131 11:00:07.511" endtime="20220131 11:00:08.105"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220131 11:00:08.105" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220131 11:00:08.105" endtime="20220131 11:00:08.105"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:08.105" endtime="20220131 11:00:08.105"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${res.json()["updatedAt"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220131 11:00:08.120" level="INFO">2022-01-31T05:30:07.765Z</msg>
+<status status="PASS" starttime="20220131 11:00:08.105" endtime="20220131 11:00:08.120"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${res.json()["name"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220131 11:00:08.120" level="INFO">Gaurav</msg>
+<status status="PASS" starttime="20220131 11:00:08.120" endtime="20220131 11:00:08.120"/>
+</kw>
+<doc>This Testcase is used to verify API Testing using PUT Request</doc>
+<tag>API_Testing</tag>
+<status status="PASS" starttime="20220131 11:00:07.511" endtime="20220131 11:00:08.120"/>
+</test>
+<test id="s1-t4" name="API Testing Mode Patch">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_user</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220131 11:00:08.120" level="INFO">Creating Session using : alias=session_user, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220131 11:00:08.120" endtime="20220131 11:00:08.120"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${my_var}</var>
+<arg>name=Krishnesh</arg>
+<arg>job=Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220131 11:00:08.120" level="INFO">${my_var} = {'name': 'Krishnesh', 'job': 'Engineer'}</msg>
+<status status="PASS" starttime="20220131 11:00:08.120" endtime="20220131 11:00:08.120"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220131 11:00:08.120" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220131 11:00:08.120" endtime="20220131 11:00:08.120"/>
+</kw>
+<kw name="Patch Request" library="RequestsLibrary">
+<var>${res}</var>
+<arg>session_user</arg>
+<arg>${put_patch_delete_url}</arg>
+<arg>data=${my_var}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `PATCH On Session` instead.</doc>
+<msg timestamp="20220131 11:00:08.120" level="WARN">Keyword 'RequestsLibrary.Patch Request' is deprecated. Please use `PATCH On Session` instead.</msg>
+<msg timestamp="20220131 11:00:08.620" level="INFO">PATCH Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '40'} 
+ body={"name": "Krishnesh", "job": "Engineer"} 
+ </msg>
+<msg timestamp="20220131 11:00:08.620" level="INFO">PATCH Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 31 Jan 2022 05:30:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"4c-CHJJYd+seMNAc4TL+CN5fdauoA4"', 'via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Kh0XuTSEkQ%2BwI9eHIjCfe%2BLBTSxWTRKa8z2gr7nl22VIbzrgNoXSNTM8LSbYv4Raog3KU30zNDiNMFUR9J3bPF0vIu7PkBZIAEmtaynoNAlwoOamSjGujLbDkMQ%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '6d608bd8fe458501-BOM', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"name":"Krishnesh","job":"Engineer","updatedAt":"2022-01-31T05:30:08.363Z"} 
+ </msg>
+<msg timestamp="20220131 11:00:08.620" level="INFO">c:\users\gaurav\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220131 11:00:08.620" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220131 11:00:08.120" endtime="20220131 11:00:08.620"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220131 11:00:08.620" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220131 11:00:08.620" endtime="20220131 11:00:08.620"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:08.620" endtime="20220131 11:00:08.620"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${res.json()["updatedAt"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220131 11:00:08.620" level="INFO">2022-01-31T05:30:08.363Z</msg>
+<status status="PASS" starttime="20220131 11:00:08.620" endtime="20220131 11:00:08.620"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${res.json()["name"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220131 11:00:08.620" level="INFO">Krishnesh</msg>
+<status status="PASS" starttime="20220131 11:00:08.620" endtime="20220131 11:00:08.620"/>
+</kw>
+<doc>This Testcase is used to verify API Testing using PATCH Request</doc>
+<tag>API_Testing</tag>
+<status status="PASS" starttime="20220131 11:00:08.120" endtime="20220131 11:00:08.636"/>
+</test>
+<test id="s1-t5" name="API Testing Mode Delete">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_user</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220131 11:00:08.636" level="INFO">Creating Session using : alias=session_user, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220131 11:00:08.636" endtime="20220131 11:00:08.636"/>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<var>${res}</var>
+<arg>session_user</arg>
+<arg>${put_patch_delete_url}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<msg timestamp="20220131 11:00:08.636" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg timestamp="20220131 11:00:09.120" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20220131 11:00:09.120" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
+ status=204, reason=No Content 
+ headers={'Date': 'Mon, 31 Jan 2022 05:30:08 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=VDRS9m2SoBTlwRZAaPrfErOwcuG6lusTRIL2lvPDsEBbZI7JwQZKbq8k5roQnfX40dUSYlT0uvFzQkKKrCkQyrTT%2BZNhz%2ByDk%2BGK4Z%2BYYKs3%2FOMhDCXjRWiAnTs%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '6d608bdc3d1b85ee-BOM', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=None 
+ </msg>
+<msg timestamp="20220131 11:00:09.120" level="INFO">c:\users\gaurav\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220131 11:00:09.120" level="INFO">${res} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220131 11:00:08.636" endtime="20220131 11:00:09.136"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220131 11:00:09.136" level="INFO">${status_code} = 204</msg>
+<status status="PASS" starttime="20220131 11:00:09.136" endtime="20220131 11:00:09.136"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>204</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220131 11:00:09.136" endtime="20220131 11:00:09.136"/>
+</kw>
+<doc>This Testcase is used to verify API Testing using DELETE Request</doc>
+<tag>API_Testing</tag>
+<status status="PASS" starttime="20220131 11:00:08.636" endtime="20220131 11:00:09.136"/>
+</test>
+<status status="PASS" starttime="20220131 11:00:06.199" endtime="20220131 11:00:09.136"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">API_Testing</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="API Automation">API Automation</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220131 11:00:06.933" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20220131 11:00:07.511" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg timestamp="20220131 11:00:08.120" level="WARN">Keyword 'RequestsLibrary.Patch Request' is deprecated. Please use `PATCH On Session` instead.</msg>
+<msg timestamp="20220131 11:00:08.636" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+</errors>
+</robot>
